@@ -1,0 +1,25 @@
+{
+  "name": "comtehno-it",
+  "version": "1.0.0",
+  "description": "My site presentation",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VictorCraciun/comtehno-it.git"
+  },
+  "author": "COMTEHNO-IT SRL",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VictorCraciun/comtehno-it/issues"
+  },
+  "homepage": "https://github.com/VictorCraciun/comtehno-it#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "path": "^0.12.7"
+  }
+}
