@@ -11,8 +11,14 @@ var params = require("./params/params");
 var setUpPassport = require("./setuppassport");
 
 var app = express();
+/*
 mongoose.connect(params.DATABASECONNECTION, {useUnifiedTopology:true, useNewUrlParser:true});
-setUpPassport();
+setUpPassport();*/
+mongoose.connect(params.DTATABASECONNECTION, function(err, db) {
+    if (err) throw err;
+    console.log("Database created!");
+    db.close();
+  });
 
 app.set("port", process.env.PORT || 80);
 app.set("views", path.join(__dirname, "views"));
