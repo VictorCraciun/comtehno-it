@@ -20,7 +20,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(cookieParser());
 app.use(session({
-    secret:"dfgfyhhyuytujk5444/fs*f456",
+    secret:"dfgfyhhyuytuj",
     resave:false,
     saveUnitialized:false
 }));
