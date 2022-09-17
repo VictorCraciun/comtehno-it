@@ -1,5 +1,4 @@
-const DATABASECONNECTION = "mongodb+srv://victor:<Teodora13>@cluster0.ungxvbj.mongodb.net/?retryWrites=true&w=majority";
-
+const DATABASECONNECTION = "mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.5.4";
 module.exports = {
     DATABASECONNECTION
 }
