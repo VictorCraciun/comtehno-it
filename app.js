@@ -20,6 +20,9 @@ mongoose.connect(params.DTATABASECONNECTION, function(err, db) {
     db.close();
   });
 
+mongoose.connect(params.DATABASECONNECTION, {useUnifiedTopology:true, useNewUrlParser:true});
+setUpPassport();
+
 app.set("port", process.env.PORT || 80);
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
