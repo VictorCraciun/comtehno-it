@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use(session({
     secret:"dfgfyhhyuytuj",
     resave:false,
-    saveUnitialized:false
+    saveUninitialized:false
 }));
 
 app.use(passport.initialize());
