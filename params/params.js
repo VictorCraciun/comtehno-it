@@ -1,4 +1,4 @@
-const DATABASECONNECTION = "mongodb://127.0.0.1:27017/";
+const DATABASECONNECTION = "mongodb+srv://admin:Teodora13@cluster0.tuxekl7.mongodb.net/?retryWrites=true&w=majority";
 module.exports = {
     DATABASECONNECTION
 }

@@ -11,14 +11,6 @@ var params = require("./params/params");
 var setUpPassport = require("./setuppassport");
 
 var app = express();
-/*
-mongoose.connect(params.DATABASECONNECTION, {useUnifiedTopology:true, useNewUrlParser:true});
-setUpPassport();*/
-mongoose.connect(params.DTATABASECONNECTION, function(err, db) {
-    if (err) throw err;
-    console.log("Database created!");
-    db.close();
-  });
 
 mongoose.connect(params.DATABASECONNECTION, {useUnifiedTopology:true, useNewUrlParser:true});
 setUpPassport();
