@@ -21,6 +21,21 @@ router.get("/about", function(req, res){
     res.render("home/about");
 });
 
+router.get("/services", function(req, res){
+    console.log("Hello I'am an Services");
+    res.render("home/services");
+});
+
+router.get("/projects", function(req, res){
+    console.log("Hello I'am an Projects");
+    res.render("home/projects");
+});
+
+router.get("/contact", function(req, res){
+    console.log("Hello I'am an Contact");
+    res.render("home/contact");
+});
+
 router.get("/login", function(req, res){
     console.log("Hello I'am an LogIn");
     res.render("home/login");

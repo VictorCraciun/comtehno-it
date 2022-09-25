@@ -1,4 +1,4 @@
-<%- include('../_partial/_header'); -%>
+<%- include('../_partial/_header.ejs') %>
  
 <div class="row">
     <div class="col-md-6">
@@ -8,7 +8,7 @@
  
 <div class="row">
     <div class="col-md-6">
-        <form action="/posts/add" method="POST">
+        <form action="/post/add" method="POST">
             <div class="form-group">
  
                 <label for="inputTitle">Title</label>
@@ -28,5 +28,4 @@
     </form>
 </div>
  
- 
-<%- include ('../_partial/_footer'); -%>
+<%- include('../_partial/_footer.ejs') %>
