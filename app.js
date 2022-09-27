@@ -32,12 +32,15 @@ app.use(flash());
 
 app.use("/", require("./routes/web"));
 app.use("/api", require("./routes/api"));
+app.use(express.static(__dirname + "/public"));
+
+/*
 app.use(express.static(__dirname + "/css"));
 app.use(express.static(__dirname + "/lib/animate"));
 app.use(express.static(__dirname + "/lib/owlcarousel/assets"));
 app.use(express.static(__dirname + "/lib/lightbox/css"));
 app.use(express.static(__dirname + "/img"));
-
+*/
 
 app.listen(app.get("port"), function(){
     console.log("Server started on port " + app.get("port"));
