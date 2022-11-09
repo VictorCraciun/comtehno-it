@@ -8,10 +8,10 @@
                 <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+37379033577</p>
                 <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@comtehno-it.com</p>
                 <div class="d-flex pt-2">
-                    <a class="btn btn-square btn-outline-secondary rounded-circle me-1" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-square btn-outline-secondary rounded-circle me-1" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-square btn-outline-secondary rounded-circle me-1" href="https://twitter.com/comntehnoit"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-square btn-outline-secondary rounded-circle me-1" href="https://www.facebook.com/comtehnoit"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-square btn-outline-secondary rounded-circle me-1" href=""><i class="fab fa-youtube"></i></a>
-                    <a class="btn btn-square btn-outline-secondary rounded-circle me-0" href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-square btn-outline-secondary rounded-circle me-0" href="https://www.linkedin.com/company/comtehno-it/"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
@@ -45,15 +45,30 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <form action="/subscribe" method="post" class="col-lg-3 col-md-6"> 
                 <h5 class="text-light mb-4">Newsletter</h5>
-                <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                <p>Put your email to get free resources</p>
                 <div class="position-relative mx-auto" style="max-width: 400px;">
-                    <input class="form-control bg-transparent border-secondary w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                    <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                    <input class="form-control bg-transparent border-secondary w-100 py-3 ps-4 pe-5" type="text" name="formsubscribe" placeholder="Your email">
+                    <button class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2" type="submit"> SignUp</button>
                 </div>
-            </div>
+                <p></p>
+                <div class="container">
+                    <% if(error_subscribe && error_subscribe.length > 0) { %>
+                        <div class="alert alert-danger" role="alert"> 
+                            <%= error_subscribe %>  
+                        </div>
+                    <% } %>
+        
+                    <% if(info_subscribe && info_subscribe.length > 0) { %>
+                        <div class="alert alert-info" role="alert"> 
+                            <%= info_subscribe %>  
+                        </div>
+                    <% } %>
+                </div>
+            </form>
         </div>
+        
     </div>
     <div class="copyright-txt" >
         &copy; <a href="#">COMTEHNO-IT</a>, All Right Reserved.

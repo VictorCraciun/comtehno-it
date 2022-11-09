@@ -1,90 +1,82 @@
 var express = require("express");
-var passport = require("passport");
+const Subscribers = require("../../models/subscribers");
 
-var ensureAuthenticated = require("../../auth/auth").ensureAuthenticated;
-
-var User = require("../../models/user");
+const Mess = require("../../models/messages");
 var router = express.Router();
 
+//route to pages
 router.get("/", function(req, res){
-    console.log("Hello I'am an the start here");
+    console.log("I'am an the start now");
     res.render("home/");
 });
 
 router.get("/home", function(req, res){
-    console.log("Hello I'am an home page");
+    console.log("I'am an home page");
     res.render("home/home");
 });
 
 router.get("/about", function(req, res){
-    console.log("Hello I'am an About");
+    console.log("I'am an About");
     res.render("home/about");
 });
 
+router.get("/subscription", function(req, res){
+    console.log("I'am an Subscription");
+    res.render("home/subscription");
+});
+
 router.get("/services", function(req, res){
-    console.log("Hello I'am an Services");
+    console.log("I'am an Services");
     res.render("home/services");
 });
 
 router.get("/projects", function(req, res){
-    console.log("Hello I'am an Projects");
+    console.log("I'am an Projects");
     res.render("home/projects");
 });
 
 router.get("/contact", function(req, res){
-    console.log("Hello I'am an Contact");
+    console.log("I'am an Contact");
     res.render("home/contact");
 });
 
-router.get("/login", function(req, res){
-    console.log("Hello I'am an LogIn");
-    res.render("home/login");
-});
-
-router.get("/logout", function(req, res){
-    console.log("Hello I'am an Logout");
-    req.logout(req.user, err =>{
-            if(err) return next(err);
-            res.redirect("/home");
+//register subscribers
+router.post("/subscribe", function(req, res){
+    var newSubscription = new Subscribers({
+        emailSubscribe: req.body.formsubscribe
     });
-});
 
-router.post("/login",passport.authenticate("login", {
-    successRedirect:"/",
-    failureRedirect:"/login",
-    failureFlash:true
-}));
-
-
-router.get("/signup", function(req, res){
-    console.log("Hello I'am an SignUP");
-    res.render("home/signup");
-});
-
-router.post("/signup", function(req, res, next){
-    var username = req.body.username;
-    var email = req.body.email;
-    var password = req.body.password;
-
-    User.findOne({ email: email }, function(err, user) {
+    Subscribers.findOne({ emailSubscribe: req.body.formsubscribe }, function(err, user) {
         if (err) { return next(err); }
         if (user) {
-            req.flash("error", "There's already an account with this email");
-            return res.redirect("/signup");
+            console.log("Subscribe error: There's already subscribe with this email");
+            req.flash("error_subscribe", "There's already subscribe with this email");
+            res.redirect("/home");
         }
 
-        var newUser = new User({
-            username: username,
-            password: password,
-            email: email
+        newSubscription.save(function(err, post){
+            if(err){console.log(err)} 
+            console.log("Subscription add");
+            req.flash("info_subscribe", "You are subscribed"); 
+            res.redirect("/home");
         });
-
-        newUser.save(next);
     });
-}, passport.authenticate("login", {
-    successRedirect:"/",
-    failureRedirect:"/signup",
-    failureFlash:true
-}));
+
+});
+
+//register a contact query
+router.post("/send-email", function (req, res) {
+    var newMessages = new Mess({
+        name: req.body.firstname,
+        youremail: req.body.emailadress,
+        messages: req.body.formmessage,
+    });
+
+    newMessages.save(function(err, post){
+        if(err){console.log(err)}
+        req.flash("info_contact", "You message was send!"); 
+        res.redirect("/contact");
+    });
+});
 
 module.exports = router;

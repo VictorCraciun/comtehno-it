@@ -4,12 +4,12 @@ var router = express.Router();
 
 router.use(function(req, res, next){
     res.locals.currentUser = req.user;
-    res.locals.error = req.flash("error");
-    res.locals.info = req.flash("info");
+    res.locals.error_subscribe = req.flash("error_subscribe");
+    res.locals.info_subscribe = req.flash("info_subscribe");
+    res.locals.info_contact = req.flash("info_contact");
     next();
 });
 
 router.use("/", require("./home"));
-router.use("/post", require("./post"));
 
 module.exports = router;
